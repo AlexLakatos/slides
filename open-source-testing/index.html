@@ -1,0 +1,351 @@
+<!DOCTYPE HTML>
+<html lang="en-US" class="fade">
+<!--
+  ^ You can control a few things with the <html> element's classes:
+
+  "fade"      - smooth fade between slides
+  "nonumbers" - remove the slide numbering after the progress bar
+-->
+
+<head>
+  <title>Open Source Testing</title>
+  <!--
+    ^ Don't forget a good title - they show up as bookmarks and in Google
+  -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1274, user-scalable=no">
+  <link rel="stylesheet" href="themes/mozilla/styles/style.css">
+  <style type="text/css">
+    /* Add your own styles here */
+  </style>
+</head>
+<body class="list">
+
+  <header class="caption">
+    <h1>Open Source Testing</h1>
+    <p class="footer">Alex Lakatos, <a href="http://twitter.com/lakatos88">lakatos88</a> or <a href="mailto:">alex@greensqr.com</a></p>
+  </header>
+
+<!--
+  The following is a slide, it needs a class of "slide" and it doesn't
+  hurt to keep the right semantic elements in there, too.
+  IMPORTANT: each slide needs its own unique ID - this will become its
+  URL and this is how this slide system works!
+-->
+
+  <div id="cover" class="slide"><div>
+    <section>
+      <header>
+        <h2>Open Source Testing</h2>
+      </header>
+      <div align="center">
+        <img src="pictures/opensource-logo.png"
+             alt=""
+             width="50%"
+             heigth="50%">
+      </div>
+      <small class="byline">
+        Alex Lakatos, Mozilla, Tabara de Testare #10, Cluj CoWork, 06/02/2012
+      </small>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>
+
+  <div id="all-about" class="slide"><div>
+    <section>
+      <header>
+        <h2>What's Open Source Testing all about?</h2>
+      </header>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="standards" class="slide shout"><div>
+    <section>
+      <header>
+        <h2>Standards!</h2>
+      </header>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="types-of-testing" class="slide"><div>
+    <section>
+      <header>
+        <h2>What types of testing happen at Mozilla?</h2>
+      </header>
+      <ul>
+        <li>Grey-box is the only box</li>
+        <li>Unit testing in Developer Land</li>
+        <li>There is only Continous Integration</li>
+        <li>Having multiple levels of System Testing</li>
+        <li>When alpha and beta just aren't enough</li>
+      </ul>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="grey-box" class="slide cover w"><div>
+    <section>
+      <header>
+        <h2>Grey-box is the only box</h2>
+      </header>
+        <img src="pictures/grey-box.jpg"
+             alt="">
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="unit-testing" class="slide"><div>
+    <section>
+      <header>
+        <h2>Unit testing in Developer Land</h2>
+      </header>
+        <ul class="longlist">
+        <li>buildbot
+          <ul>
+            <li>xpcshell</li>
+            <li>JS shell tests</li>
+            <li>crashtest</li>
+            <li>reftest</li>
+            <li>Mochitest</li>
+            <li>Mochitest-other</li>
+            <li>Mochitest-Robocop</li>
+            <li>Talos</li>
+          </ul>
+        </li>
+        <li>Mozmill</li>
+        <li>Speedtests</li>
+        <li>Peptest</li>
+        <li>Marionette harness</li>
+      </ul>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="continous" class="slide cover h"><div>
+    <section>
+      <header>
+        <h2>There is only Continous Integration</h2>
+      </header>
+        <img src="pictures/tbpl.png"
+             alt="">
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="system" class="slide cover h"><div>
+    <section>
+      <header>
+        <h2>Having multiple levels of System Testing</h2>
+      </header>
+        <img src="pictures/multilevel.jpg"
+             alt="">
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="alpha" class="slide cover w"><div>
+    <section>
+      <header>
+        <h2>When alpha and beta just aren't enough</h2>
+      </header>
+        <img src="pictures/channels.png"
+             alt="">
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+ <div id="automation" class="slide"><div>
+    <section>
+      <header>
+        <h2>Automate all the tests!</h2>
+      </header>
+      <ul>
+        <li>Smoke tests</li>
+        <li>Regressions</li>
+        <li>Performance</li>
+        <li>Internationalization</li>
+      </ul>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+ <div id="processes" class="slide"><div>
+    <section>
+      <header>
+        <h2>What about processes?</h2>
+      </header>
+      <ul>
+        <li>There is only Bugzilla!</li>
+        <li>Open access to info</li>
+        <li>How to loose 8 hours in calls</li>
+        <li>Tools have to improve productivity</li>
+        <li>There is no "one size fits all"</li>
+      </ul>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="bugzilla" class="slide"><div>
+    <section>
+      <header>
+        <h2>There is only Bugzilla!</h2>
+      </header>
+      <ul>
+        <li>https://bugzilla.mozilla.org/</li>
+        <li>838000+ bugs loged up until today</li>
+        <li>used for everything, not just development</li>
+      </ul>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="info" class="slide"><div>
+    <section>
+      <header>
+        <h2>Open access to info</h2>
+      </header>
+      <ul>
+        <li>https://bugzilla.mozilla.org/</li>
+        <li>http://wiki.mozilla.org/</li>
+        <li>Public calls</li>
+      </ul>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="meetings" class="slide"><div>
+    <section>
+      <header>
+        <h2>How to loose 8 hours in calls</h2>
+      </header>
+      <ul>
+        <li>Do you really need to call?</li>
+        <li>Do you have anything to say?</li>
+        <li>Are you getting anything out of the meeting?</li>
+      </ul>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="tools" class="slide cover h"><div>
+    <section>
+      <header>
+        <h2>Tools have to improve productivity</h2>
+      </header>
+      <img src="pictures/tools.png"
+             alt="">
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="one-size" class="slide cover h"><div>
+    <section>
+      <header>
+        <h2>There is no "one size fits all"</h2>
+      </header>
+      <img src="pictures/one-size.jpg"
+             alt="">
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="community" class="slide cover h"><div>
+    <section>
+      <header>
+        <h2>Dealing with the community</h2>
+      </header>
+        <img src="pictures/community-overview.jpg"
+             alt="">
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="contributor" class="slide cover h"><div>
+    <section>
+      <header>
+        <h2>Contributor is King</h2>
+      </header>
+        <img src="pictures/community.jpg"
+             alt="">
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="toxic-input" class="slide cover h"><div>
+    <section>
+      <header>
+        <h2>Toxic input</h2>
+      </header>
+        <img src="pictures/community-toxic.jpg"
+             alt="">
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="fairy-tale" class="slide cover w"><div>
+    <section>
+      <header>
+        <h2>Using lessons from fairy tales into the real world</h2>
+      </header>
+        <img src="pictures/fairytale.jpg"
+             alt="">
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="thanks" class="slide"><div>
+    <section>
+      <header>
+        <h2>Thanks</h2>
+      </header>
+        <figure class="frame middle swing">
+        <img src="pictures/mozillaoverview/redpanda.jpg"
+             alt="Red panda (Firefox)">
+        </figure>
+      <ul class="oneline demourl">
+        <li>Alex Lakatos</li>
+        <li><a href="http://twitter.com/lakatos88">lakatos88</a></li>
+        <li><a href="http://alexlakatos.github.com/slides/open-source-testing/">
+          http://alexlakatos.github.com/slides/open-source-testing/
+        </a></li>
+      </ul>
+      <small class="credits">
+        <a href="http://www.flickr.com/photos/yortw/5798336827/">
+          Photo by Yortw
+        </a>
+      </small>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>
+
+  <div class="progress"><div></div></div>
+  <!--
+    ^ don't like a progress bar? just delete this DIV
+  -->
+  <script src="scripts/script.js"></script>
+  <!-- Copyright © 2010–2012 Vadim Makeev — pepelsbey.net -->
+</body>
+</html>
