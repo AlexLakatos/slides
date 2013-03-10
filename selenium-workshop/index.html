@@ -1,0 +1,224 @@
+<!DOCTYPE HTML>
+<html lang="en-US" class="fade">
+<!--
+  ^ You can control a few things with the <html> element's classes:
+
+  "fade"      - smooth fade between slides
+  "nonumbers" - remove the slide numbering after the progress bar
+-->
+
+<head>
+  <title>Mozilla WebQA - Selenium Workshop</title>
+  <!--
+    ^ Don't forget a good title - they show up as bookmarks and in Google
+  -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1274, user-scalable=no">
+  <link rel="stylesheet" href="themes/mozilla/styles/style.css">
+  <style type="text/css">
+    /* Add your own styles here */
+  </style>
+</head>
+<body class="list">
+
+  <header class="caption">
+    <h1>Mozilla WebQA</h1>
+    <p class="footer">Alex Lakatos, <a href="http://twitter.com/lakatos88">@lakatos88</a> or <a href="mailto:alex@greensqr.com">alex@greensqr.com</a></p>
+  </header>
+
+<!--
+  The following is a slide, it needs a class of "slide" and it doesn't
+  hurt to keep the right semantic elements in there, too.
+  IMPORTANT: each slide needs its own unique ID - this will become its
+  URL and this is how this slide system works!
+-->
+
+  <div id="cover" class="slide"><div>
+    <section>
+      <header>
+        <h2>Mozilla WebQA - Selenium Workshop</h2>
+      </header>
+      <div style="text-align: center;"><img width="200" src="pictures/webqa-logo.png"></div>
+      <small class="byline">
+        Alex Lakatos, Mozilla, Selenium Workshop, Cluj Cowork, 10-03-2012
+      </small>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>
+
+  <div id="who-are-we" class="slide cover h"><div>
+      <section>
+          <header>
+              <h2>Who are we?</h2>
+          </header>
+          <img src="pictures/qa-approval.png"
+               alt="Automation team"></li>
+          <footer class="notes">
+          </footer>
+      </section>
+  </div></div>
+  <div id="team" class="slide cover w"><div>
+      <section>
+          <header>
+              <h2>Team of highly trained engineer's</h2>
+          </header>
+          <img src="pictures/webqa-us.jpg"
+               alt="Automation team"></li>
+          <footer class="notes">
+          </footer>
+      </section>
+  </div></div>
+  <div id="testers" class="slide cover w"><div>
+      <section>
+          <header>
+              <h2>Testers and Developers collaborating</h2>
+          </header>
+          <img src="pictures/webqa-us.jpg"
+               alt="Automation team"></li>
+          <footer class="notes">
+          </footer>
+      </section>
+  </div></div>
+
+  <div id="contributors" class="slide cover w"><div>
+      <section>
+          <header>
+              <h2>A group of contributor's that work with passion 24/7</h2>
+          </header>
+          <img src="pictures/mustache.jpg"
+               alt="Automation team"></li>
+          <footer class="notes">
+          </footer>
+      </section>
+  </div></div>
+
+  <div id="friends" class="slide cover w"><div>
+      <section>
+          <header>
+              <h2>Friends that work together</h2>
+          </header>
+          <img src="pictures/mustache.jpg"
+               alt="Automation team"></li>
+          <footer class="notes">
+          </footer>
+      </section>
+  </div></div>
+
+  <div id="what-do-we-do" class="slide"><div>
+      <section>
+          <header>
+              <h2>What do we do?</h2>
+          </header>
+          <ul>
+              <li>Ensure high quality of Mozilla web applications</li>
+              <li>We test aprox 15 sites daily</li>
+              <li>Run manual tests using Moztrap for all the sites
+                <ul><li>https://moztrap.mozilla.org/</ul></li></li>
+              <li>Write automated tests for all the sites
+                  <ul><li>We use Selenium and Python</ul></li></li>
+
+              <li>Security testing</li>
+              <li>Performance testing</li>
+          </ul>
+          <footer class="notes">
+          </footer>
+      </section>
+  </div></div>
+
+  <div id="how-do-we-code" class="slide"><div>
+    <section>
+      <header>
+        <h2>What do we code?</h2>
+      </header>
+      <pre class='code'>
+        <br>@pytest.mark.nondestructive
+        <br>def test_that_search_results_return_20_results_per_page(self, mozwebqa):
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;"""
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;Test for Litmus 17346.
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;https://litmus.mozilla.org/show_test.cgi?id=17346
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;"""
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;home_page = Home(mozwebqa)
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;search_page = home_page.search_for('deutsch')
+
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;first_expected = 1
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;second_expected = 20
+
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;while not search_page.paginator.is_next_page_disabled:
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;first_count = search_page.paginator.start_item
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;second_count = search_page.paginator.end_item
+
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Assert.equal(first_expected, first_count)
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Assert.equal(second_expected, second_count)
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Assert.equal(search_page.result_count, 20)
+
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;search_page.paginator.click_next_page()
+
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;first_expected += 20
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;second_expected += 20
+
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;number = search_page.paginator.total_items % 20
+
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;if number == 0:
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Assert.equal(search_page.result_count, 20)
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;else:
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Assert.equal(search_page.result_count, number)
+      </pre>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="find-us" class="slide"><div>
+      <section>
+          <header>
+              <h2>Talk to us!</h2>
+          </header>
+          <ul>
+<li>IRC: <a href="http://widget.mibbit.com/?settings=1b10107157e79b08f2bf99a11f521973&amp;server=irc.mozilla.org&amp;channel=%23mozwebqa">#mozwebqa on irc.mozilla.org</a></li>
+<li>Email: <a href="mailto:mozwebqa@mozilla.org">mozwebqa@mozilla.org</a></li>
+<li>Team Wiki: <a href="https://wiki.mozilla.org/QA/Execution/Web_Testing">https://wiki.mozilla.org/QA/Execution/Web_Testing</a></li>
+<li>Mailing list: <a href="https://mail.mozilla.org/listinfo/mozwebqa">mozwebqa</a></li>
+<li>Contributor Corner: <a href="https://wiki.mozilla.org/QA/Execution/Web_Testing/Contributor_Corner">Our list of fantastic team contributors</a></li>
+</ul>
+          <footer class="notes">
+          </footer>
+      </section>
+  </div></div>
+
+
+
+  <div id="thanks" class="slide"><div>
+    <section>
+      <header>
+        <h2>Thanks</h2>
+      </header>
+        <figure class="frame middle swing">
+        <img src="pictures/mozillaoverview/redpanda.jpg"
+             alt="Red panda (Firefox)">
+        </figure>
+      <ul class="oneline demourl">
+        <li>Alex Lakatos</li>
+        <li><a href="http://twitter.com/lakatos88">lakatos88</a></li>
+        <li><a href="http://alexlakatos.github.com/slides/selenium-workshop/">
+          http://alexlakatos.github.com/slides/selenium-workshop/
+        </a></li>
+      </ul>
+      <small class="credits">
+        <a href="http://www.flickr.com/photos/yortw/5798336827/">
+          Photo by Yortw
+        </a>
+      </small>
+    <footer class="notes">
+    </footer>
+    </section>
+  </div></div>
+
+  <div class="progress"><div></div></div>
+  <!--
+    ^ don't like a progress bar? just delete this DIV
+  -->
+  <script src="scripts/script.js"></script>
+  <!-- Copyright © 2010–2012 Vadim Makeev — pepelsbey.net -->
+</body>
+</html>
