@@ -1,0 +1,370 @@
+<!DOCTYPE HTML>
+<!-- <html lang="en-US"> -->
+<html lang="en-US" class="fade">
+<!-- 
+  ^ a class of "fade" makes slides fade smoothly into one another
+ -->
+<!-- <html lang="en-US" class="nonumbers"> -->
+<!-- 
+  If you want no numbers on the slides add a "nonumbers" class 
+  to the HTML element.
+  Adding a class of "fade" will make slides fade into another. 
+-->
+<head>
+  <meta charset="UTF-8">
+  <title>Web Performance 101</title>
+<!-- 
+  If you upload your slides to the web, ensure that you have 
+  a good title - this shows up in search results and social
+  media links
+ -->
+  <meta name="viewport" content="width=device-width, user-scalable=yes">
+  <link rel="stylesheet" href="themes/mozilla/styles/style.css">
+</head>
+<body class="list">
+  <header class="caption">
+    <h1>Web Performance 101</h1>
+    <p class="footer">
+      Alex Lakatos, 
+      <a href="http://twitter.com/lakatos88">@lakatos88</a> or 
+      <a href="mailto:alex.lakatos@ebsromania.ro">alex.lakatos@ebsromania.ro</a>
+    </p>
+  </header>
+
+<!-- 
+    Simply copy the whole block for each slide you want.
+  Special slides get extra classes. Each slide needs an ID 
+  to allow for bookmarking and target jumping.
+-->
+
+  <div id="cover" class="slide"><div>
+    <section>
+      <img src="pictures/codecamp/webperf.png" 
+           class="middle" height="400"
+           alt="web performance">
+      <small class="byline">
+        Alex Lakatos, Codecamp, Iasi, 12.10.2013
+      </small>
+      <footer class="notes">
+        We're here to talk about why performance matters, and the basics to get you started.
+      </footer>
+    </section>
+  </div></div>
+
+<!-- end slide block -->
+
+  <div id="matter" class="slide oneline"><div>
+    <section>
+      <header>
+        <h2>Does it really matter?</h2>
+      </header>
+      <footer class="notes">
+      Of course it does! I know it, and by the fact you're here, you know it too!
+      </footer>
+    </section>
+  </div></div>  
+
+  <div id="searchengines" class="slide"><div>
+    <section>
+      <header>
+        <h2>Search Engine Research</h2>
+      </header>
+      <img src="pictures/codecamp/engines.png" 
+           class="middle" 
+           alt="Search Engines"
+           width="400">
+      <footer class="notes">
+       Bing – A page that was 2 seconds slower resulted in a 4.3% drop in revenue/user.
+        Google – A 400 millisecond delay caused a 0.59% drop in searches/user.
+         Yahoo! – A 400 milliseconds slowdown resulted in a 5-9% drop in full-page traffic.
+      </footer>
+    </section>
+  </div></div>
+
+   <div id="others" class="slide"><div>
+    <section>
+      <header>
+        <h2>What other people do</h2>
+      </header>
+      <ul class="inner">
+        <li class="active">Shopzilla</li>
+        <li>Mozilla</li>
+        <li>Netflix</li>
+        <li>Google</li>
+      </ul>
+      <footer class="notes">
+    Shopzilla – Speeding up their site by 5 seconds increased the conversion rate 7-12%, doubled the number of sessions from search engine marketing, and cut the number of required servers in half.
+    Mozilla – Shaving 2.2 seconds off their landing pages increased download conversions by 15.4%, which they estimate will result in 60 million more Firefox downloads per year.
+    Netflix – Adopting a single optimization, gzip compression, resulted in a 13-25% speedup and cut their outbound network traffic by 50%.
+    Google decided to take site speed into account in their search rankings.
+      </footer>
+    </section>
+ </div></div>
+
+  <div id="htmloneline" class="slide cover w"><div>
+    <section>
+      <img src="pictures/codecamp/html.jpg" 
+           class="middle" 
+           alt="HTML">
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="inline" class="slide"><div>
+    <section>
+      <header>
+        <h2>Avoid inline/embedded code</h2>
+      </header>
+      <ul class="inner">
+        <li class="active">Inline</li>
+        <li>Embedded</li>
+        <li>External</li>
+      </ul>
+      <footer class="notes">
+      The first two options, despite reducing the number of HTTP requests, actually increase the size of your HTML document. But this can be useful when you have small assets and the cost of making a request is greater. The third option not only improves the organization of your code, but also makes it possible for the browser to cache it. This option should be preferred for the majority of cases, especially when working with large files and lots of pages.
+      </footer>
+    </section>
+  </div></div>
+
+<div id="style-top" class="slide"><div>
+    <section>
+      <header>
+        <h2>Styles up top, scripts down bottom</h2>
+      </header>
+        <pre>
+        <code>&lt;head&gt;</code>
+        <code>  &lt;meta charset="UTF-8"&gt;</code>
+        <code>  &lt;title&gt;Web Performance 101&lt;/title&gt;</code>
+        <code>  &lt;link rel="stylesheet" href="style.css" media="all"&gt;</code>
+        <code>&lt;/head&gt;</code>
+        <code>&lt;body&gt;</code>
+        <code>  &lt;p&gt;Lorem ipsum dolor sit amet.&lt;/p&gt;</code>
+        <code>  &lt;script src="script.js"&gt;&lt;/script&gt;</code>
+        <code>&lt;/body&gt;</code>
+        </pre>
+      <footer class="notes">
+      Stylesheets up top allow progressive render, while scripts block rendering while loading and executing, so they should be loaded last.
+      </footer>
+    </section>
+  </div></div>
+
+<div id="minify-html" class="slide"><div>
+    <section>
+      <header>
+        <h2>Minify your HTML</h2>
+      </header>
+      <ul class="inner no-bullets">
+        <li class="active">
+          <pre>
+            <code>&lt;ul&gt;</code>
+            <code><li><a href="#"></a></li></code>
+            <code><li><a href="#"></a></li></code>
+            <code><li><a href="#"></a></li></code>
+            <code>&lt;/ul&gt;</code>
+          </pre>
+        </li>
+        <li>
+          <pre>
+            <code>&lt;ul&gt;&lt;li&gt;&lt;a href="#"&gt;&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="#"&gt;&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="#"&gt;&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</code>
+          </pre>
+        </li>
+      </ul>
+      <footer class="notes">
+      To maintain readable code, it's a good idea to write comments and use indentation. But to the browser, none of this actually matters. For this reason, it can be useful to minify your HTML with automated tools. This will shave bytes by removing extra whitespaces, comments and other unneeded characters without breaking the content structure.
+      </footer>
+    </section>
+  </div></div>
+
+    
+
+  <div id="cssoneline" class="slide cover w"><div>
+    <section>
+      <header>
+        <img src="pictures/codecamp/css.jpg" 
+           class="middle" 
+           alt="css">
+      </header>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>  
+
+  <div id="minify-css" class="slide"><div>
+    <section>
+      <header>
+        <h2>Minify your stylesheets</h2>
+      </header>
+      <ul class="inner no-bullets">
+        <li class="active">
+          <pre>
+            <code>.center {</code>
+            <code>  width: 960px;</code>
+            <code>  margin: 0 auto;</code>
+            <code>}</code>
+            <code>.intro {</code>
+            <code>  margin: 100px;</code>
+            <code>  position: relative;</code>
+            <code>}</code>
+          </pre>
+        </li>
+        <li>
+          <pre>
+            <code>.center{width:960px;margin:0 auto}.intro{margin:100px;position:relative}</code>
+          </pre>
+        </li>
+      </ul>
+      <footer class="notes">
+      To maintain readable code, it's a good idea to write comments and use indentation. But to the browser, none of this actually matters. For this reason, it can be useful to minify your CSS with automated tools. This will shave bytes from the filesize, which results in faster downloads, parsing and execution.
+      </footer>
+    </section>
+  </div></div>
+
+
+  <div id="combine-css" class="slide cover w"><div>
+    <section>
+      <header>
+        <h2>Combining multiple CSS files</h2>
+      </header>
+      <img src="pictures/codecamp/combine-css.png" 
+           class="middle" 
+           alt="JS">
+      <footer class="notes">
+      Another best practice for organization and maintenance of styles is to separate them into modular components. However, an HTTP request is required for each one of these files (and we know that browsers can only download a limited number resources in parallel). So combine your CSS. Want to have the best of both worlds? Automate this process through a build tool.
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="link-css" class="slide"><div>
+    <section>
+      <header>
+        <h2>  Prefer &lt;link&gt; over @import</h2>
+      </header>
+      <ul class="inner no-bullets">
+        <li class="active">
+          <pre>
+            <code><link rel="stylesheet" href="style.css"></code>
+          </pre>
+        </li>
+        <li>
+          <pre>
+            <code>@import url('style.css');</code>
+          </pre>
+        </li>
+      </ul>
+      <footer class="notes">
+      When you use the second option through an external stylesheet, the browser is incapable of downloading the asset in parallel, which can block the download of other assets.
+      </footer>
+    </section>
+  </div></div>
+
+
+  <div id="imageoneline" class="slide shout"><div>
+    <section>
+      <header>
+        <h2><strong>Images</strong></h2>
+      </header>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>  
+
+  <div id="css-sprites" class="slide shout"><div>
+    <section>
+      <header>
+        <h2><strong>Use CSS Sprites</strong></h2>
+      </header>
+      <footer class="notes">
+      This technique is all about grouping various images into a single file. And then positioning them with CSS. As a result, you've dramatically reduced the number of HTTP requests and avoided any potential delay of other resources on your page. When using your sprite, avoid leaving too much white space between images. This won't affect the size of the file, but will have an effect on memory consumption.
+      </footer>
+    </section>
+  </div></div>  
+
+  <div id="data-uri" class="slide"><div>
+    <section>
+      <header>
+        <h2><strong>Data URI</strong></h2>
+      </header>
+        <ul class="inner no-bullets">
+        <li class="active">
+          <pre>
+            <code>.icon-foo {</code>
+            <code>  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAAA1BMVEUAAACnej3aAAAAAXRSTlMAQObYZgAAAApJREFUCNdjYAAAAAIAAeIhvDMAAAAASUVORK5CYII%3D');</code>
+            <code>}</code>
+          </pre>
+        </li>
+      </ul>
+      
+      <footer class="notes">
+      This technique is an alternative to using CSS sprites. A Data-URI is a way to inline the content of the URI you would normally point to. In this example I am using it to inline the content of the CSS background images in order to reduce the number of HTTP requests required to load a page. Browsers from IE8 and above support this. Both this method and the CSS spriting method require build time tools to be maintainable.
+      </footer>
+    </section>
+  </div></div>  
+
+  <div id="jsoneline" class="slide cover w"><div>
+    <section>
+      <header>
+        <img src="pictures/codecamp/js.png" 
+           class="middle" 
+           alt="JS">
+      </header>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>  
+
+  <div id="serveroneline" class="slide cover w"><div>
+    <section>
+      <header>
+        <h2><strong>Server</strong></h2>
+      </header>
+      <img src="pictures/codecamp/server.jpeg" 
+           class="middle" 
+           alt="server">
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>  
+
+  <div id="toolsoneline" class="slide cover w"><div>
+    <section>
+      <header>
+        <h2>Tools</h2>
+      </header>
+      <img src="pictures/codecamp/tools.JPG" 
+           class="middle" 
+           alt="tools">
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>  
+
+  <div id="thanks" class="slide"><div>
+    <section>
+      <header>
+        <h2>Thanks</h2>
+      </header>
+      <ul class="nobull">
+        <li>Alex Lakatos</li>
+        <li>JavaScript Performance Engineer</li>
+        <li><a href="http://twitter.com/lakatos88">@lakatos88</a></li>
+        <li><strong>Slides</strong>: 
+          <a href="http://alexlakatos.github.io/slides/codecamp/">alexlakatos.github.io/slides/codecamp</a>
+        </li>
+      </ul>
+
+    <footer class="notes">
+    </footer>
+
+    </section>
+  </div></div>
+
+  <!--
+    To hide progress bar from entire presentation
+    just remove “progress” element.
+    -->
+  <div class="progress"><div></div></div>
+  <script src="scripts/script.js"></script>
+  <!-- Copyright © 2010–2012 Vadim Makeev — pepelsbey.net -->
+</body>
+</html>
