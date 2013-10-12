@@ -1,0 +1,698 @@
+<!DOCTYPE HTML>
+<!-- <html lang="en-US"> -->
+<html lang="en-US" class="fade">
+<!-- 
+  ^ a class of "fade" makes slides fade smoothly into one another
+ -->
+<!-- <html lang="en-US" class="nonumbers"> -->
+<!-- 
+  If you want no numbers on the slides add a "nonumbers" class 
+  to the HTML element.
+  Adding a class of "fade" will make slides fade into another. 
+-->
+<head>
+  <meta charset="UTF-8">
+  <title>Web Performance 101</title>
+<!-- 
+  If you upload your slides to the web, ensure that you have 
+  a good title - this shows up in search results and social
+  media links
+ -->
+  <meta name="viewport" content="width=device-width, user-scalable=yes">
+  <link rel="stylesheet" href="themes/mozilla/styles/style.css">
+</head>
+<body class="list">
+  <header class="caption">
+    <h1>Web Performance 101</h1>
+    <p class="footer">
+      Alex Lakatos, 
+      <a href="http://twitter.com/lakatos88">@lakatos88</a> or 
+      <a href="mailto:alex.lakatos@ebsromania.ro">alex.lakatos@ebsromania.ro</a>
+    </p>
+  </header>
+
+<!-- 
+    Simply copy the whole block for each slide you want.
+  Special slides get extra classes. Each slide needs an ID 
+  to allow for bookmarking and target jumping.
+-->
+
+  <div id="cover" class="slide"><div>
+    <section>
+      <img src="pictures/codecamp/webperf.png" 
+           class="middle" height="400"
+           alt="web performance">
+      <small class="byline">
+        Alex Lakatos, Codecamp, Iasi, 12.10.2013
+      </small>
+      <footer class="notes">
+        We're here to talk about why performance matters, and the basics to get you started.
+      </footer>
+    </section>
+  </div></div>
+
+<!-- end slide block -->
+
+  <div id="matter" class="slide oneline"><div>
+    <section>
+      <header>
+        <h2>Does it really matter?</h2>
+      </header>
+      <footer class="notes">
+      Of course it does! I know it, and by the fact you're here, you know it too!
+      </footer>
+    </section>
+  </div></div>  
+
+  <div id="searchengines" class="slide"><div>
+    <section>
+      <header>
+        <h2>Search Engine Research</h2>
+      </header>
+      <img src="pictures/codecamp/engines.png" 
+           class="middle" 
+           alt="Search Engines"
+           width="400">
+      <footer class="notes">
+       Bing – A page that was 2 seconds slower resulted in a 4.3% drop in revenue/user.
+        Google – A 400 millisecond delay caused a 0.59% drop in searches/user.
+         Yahoo! – A 400 milliseconds slowdown resulted in a 5-9% drop in full-page traffic.
+      </footer>
+    </section>
+  </div></div>
+
+   <div id="others" class="slide"><div>
+    <section>
+      <header>
+        <h2>What other people do</h2>
+      </header>
+      <ul class="inner">
+        <li class="active">Shopzilla</li>
+        <li>Mozilla</li>
+        <li>Netflix</li>
+        <li>Google</li>
+      </ul>
+      <footer class="notes">
+    Shopzilla – Speeding up their site by 5 seconds increased the conversion rate 7-12%, doubled the number of sessions from search engine marketing, and cut the number of required servers in half.
+    Mozilla – Shaving 2.2 seconds off their landing pages increased download conversions by 15.4%, which they estimate will result in 60 million more Firefox downloads per year.
+    Netflix – Adopting a single optimization, gzip compression, resulted in a 13-25% speedup and cut their outbound network traffic by 50%.
+    Google decided to take site speed into account in their search rankings.
+      </footer>
+    </section>
+ </div></div>
+
+  <div id="htmloneline" class="slide cover w"><div>
+    <section>
+      <img src="pictures/codecamp/html.jpg" 
+           class="middle" 
+           alt="HTML">
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="inline" class="slide"><div>
+    <section>
+      <header>
+        <h2>Avoid inline/embedded code</h2>
+      </header>
+      <ul class="inner">
+        <li class="active">Inline</li>
+        <li>Embedded</li>
+        <li>External</li>
+      </ul>
+      <footer class="notes">
+      The first two options, despite reducing the number of HTTP requests, actually increase the size of your HTML document. But this can be useful when you have small assets and the cost of making a request is greater. The third option not only improves the organization of your code, but also makes it possible for the browser to cache it. This option should be preferred for the majority of cases, especially when working with large files and lots of pages.
+      </footer>
+    </section>
+  </div></div>
+
+<div id="style-top" class="slide"><div>
+    <section>
+      <header>
+        <h2>Styles up top, scripts down bottom</h2>
+      </header>
+        <pre>
+        <code>&lt;head&gt;</code>
+        <code>  &lt;meta charset="UTF-8"&gt;</code>
+        <code>  &lt;title&gt;Web Performance 101&lt;/title&gt;</code>
+        <code>  &lt;link rel="stylesheet" href="style.css" media="all"&gt;</code>
+        <code>&lt;/head&gt;</code>
+        <code>&lt;body&gt;</code>
+        <code>  &lt;p&gt;Lorem ipsum dolor sit amet.&lt;/p&gt;</code>
+        <code>  &lt;script src="script.js"&gt;&lt;/script&gt;</code>
+        <code>&lt;/body&gt;</code>
+        </pre>
+      <footer class="notes">
+      Stylesheets up top allow progressive render, while scripts block rendering while loading and executing, so they should be loaded last.
+      </footer>
+    </section>
+  </div></div>
+
+<div id="minify-html" class="slide"><div>
+    <section>
+      <header>
+        <h2>Minify your HTML</h2>
+      </header>
+      <ul class="inner no-bullets">
+        <li class="active">
+          <pre>
+            <code>&lt;ul&gt;</code>
+            <code><li><a href="#"></a></li></code>
+            <code><li><a href="#"></a></li></code>
+            <code><li><a href="#"></a></li></code>
+            <code>&lt;/ul&gt;</code>
+          </pre>
+        </li>
+        <li>
+          <pre>
+            <code>&lt;ul&gt;&lt;li&gt;&lt;a href="#"&gt;&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="#"&gt;&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="#"&gt;&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</code>
+          </pre>
+        </li>
+      </ul>
+      <footer class="notes">
+      To maintain readable code, it's a good idea to write comments and use indentation. But to the browser, none of this actually matters. For this reason, it can be useful to minify your HTML with automated tools. This will shave bytes by removing extra whitespaces, comments and other unneeded characters without breaking the content structure.
+      </footer>
+    </section>
+  </div></div>
+
+    
+
+  <div id="cssoneline" class="slide cover w"><div>
+    <section>
+      <header>
+        <img src="pictures/codecamp/css.jpg" 
+           class="middle" 
+           alt="css">
+      </header>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>  
+
+  <div id="minify-css" class="slide"><div>
+    <section>
+      <header>
+        <h2>Minify your stylesheets</h2>
+      </header>
+      <ul class="inner no-bullets">
+        <li class="active">
+          <pre>
+            <code>.center {</code>
+            <code>  width: 960px;</code>
+            <code>  margin: 0 auto;</code>
+            <code>}</code>
+            <code>.intro {</code>
+            <code>  margin: 100px;</code>
+            <code>  position: relative;</code>
+            <code>}</code>
+          </pre>
+        </li>
+        <li>
+          <pre>
+            <code>.center{width:960px;margin:0 auto}.intro{margin:100px;position:relative}</code>
+          </pre>
+        </li>
+      </ul>
+      <footer class="notes">
+      To maintain readable code, it's a good idea to write comments and use indentation. But to the browser, none of this actually matters. For this reason, it can be useful to minify your CSS with automated tools. This will shave bytes from the filesize, which results in faster downloads, parsing and execution.
+      </footer>
+    </section>
+  </div></div>
+
+
+  <div id="combine-css" class="slide cover w"><div>
+    <section>
+      <header>
+        <h2>Combining multiple CSS files</h2>
+      </header>
+      <img src="pictures/codecamp/combine-css.png" 
+           class="middle" 
+           alt="JS">
+      <footer class="notes">
+      Another best practice for organization and maintenance of styles is to separate them into modular components. However, an HTTP request is required for each one of these files (and we know that browsers can only download a limited number resources in parallel). So combine your CSS. Want to have the best of both worlds? Automate this process through a build tool.
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="link-css" class="slide"><div>
+    <section>
+      <header>
+        <h2>  Prefer &lt;link&gt; over @import</h2>
+      </header>
+      <ul class="inner no-bullets">
+        <li class="active">
+          <pre>
+            <code><link rel="stylesheet" href="style.css"></code>
+          </pre>
+        </li>
+        <li>
+          <pre>
+            <code>@import url('style.css');</code>
+          </pre>
+        </li>
+      </ul>
+      <footer class="notes">
+      When you use the second option through an external stylesheet, the browser is incapable of downloading the asset in parallel, which can block the download of other assets.
+      </footer>
+    </section>
+  </div></div>
+
+
+  <div id="imageoneline" class="slide shout"><div>
+    <section>
+      <header>
+        <h2><strong>Images</strong></h2>
+      </header>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>  
+
+  <div id="css-sprites" class="slide shout"><div>
+    <section>
+      <header>
+        <h2><strong>Use CSS Sprites</strong></h2>
+      </header>
+      <footer class="notes">
+      This technique is all about grouping various images into a single file. And then positioning them with CSS. As a result, you've dramatically reduced the number of HTTP requests and avoided any potential delay of other resources on your page. When using your sprite, avoid leaving too much white space between images. This won't affect the size of the file, but will have an effect on memory consumption.
+      </footer>
+    </section>
+  </div></div>  
+
+  <div id="data-uri" class="slide"><div>
+    <section>
+      <header>
+        <h2><strong>Data URI</strong></h2>
+      </header>
+        <ul class="inner no-bullets">
+        <li class="active">
+          <pre>
+            <code>.icon-foo {</code>
+            <code>  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAAA1BMVEUAAACnej3aAAAAAXRSTlMAQObYZgAAAApJREFUCNdjYAAAAAIAAeIhvDMAAAAASUVORK5CYII%3D');</code>
+            <code>}</code>
+          </pre>
+        </li>
+      </ul>
+      
+      <footer class="notes">
+      This technique is an alternative to using CSS sprites. A Data-URI is a way to inline the content of the URI you would normally point to. In this example I am using it to inline the content of the CSS background images in order to reduce the number of HTTP requests required to load a page. Browsers from IE8 and above support this. Both this method and the CSS spriting method require build time tools to be maintainable.
+      </footer>
+    </section>
+  </div></div>  
+
+  <div id="rescale" class="slide"><div>
+    <section>
+      <header>
+        <h2><strong>Don't rescale images in markup</strong></h2>
+      </header>
+        <ul class="inner no-bullets">
+        <li class="active">
+          <pre>
+            <code><img width="100" height="100" src="logo.jpg" alt="Logo"></code>
+          </pre>
+        </li>
+      </ul>
+      
+      <footer class="notes">
+      Always define the width and height attributes of an image. This will help avoid unnecessary repaints and reflows during rendering. If you send a bigger image than you need, you're basically loading more than you need, causing unnecessary network traffic.
+      </footer>
+    </section>
+  </div></div>
+
+    <div id="optimize" class="slide cover h"><div>
+    <section>
+      <header>
+                <h2><strong>Optimize your images</strong></h2>
+      </header>
+
+      <img src="pictures/codecamp/optimize.jpg" 
+           class="middle" 
+           alt="JS">
+      <footer class="notes">
+      Image files contains a lot of information that is useless on the Web. There are tools that exist for image optimization that will remove all this unnecessary data and give you a slimmer file without degrading quality. They perform lossless compression. Another way to optimize images is to compress them at the cost of visual quality. That is lossy optimization.
+      </footer> 
+    </section>
+  </div></div> 
+
+  <div id="jsoneline" class="slide cover w"><div>
+    <section>
+      <header>
+        <img src="pictures/codecamp/js.png" 
+           class="middle" 
+           alt="JS">
+      </header>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="3rdparty" class="slide"><div>
+    <section>
+      <header>
+        <h2>Load 3rd party content asynchronously</h2>
+      </header>
+      <pre>
+        <code>var script = document.createElement('script'),</code>
+        <code>    scripts = document.getElementsByTagName('script')[0];</code>
+        <code>script.async = true;</code>
+        <code>script.src = url;</code>
+        <code>scripts.parentNode.insertBefore(script, scripts);</code>
+      </pre>
+      <footer class="notes">
+      Who has never loaded a third-party content to embed a Youtube video or like/tweet button?
+
+The big problem is that these codes aren't always delivered efficiently, either by user's connection, or the connection to the server where they are hosted. Or this service might be temporarily down or even be blocked by the user's or his company's firewall.
+
+To avoid it becoming a critical issue when loading a site or worse, lock the entire page load, always load these codes asynchronously
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="array" class="slide"><div>
+    <section>
+      <header>
+        <h2>  Cache array lengths</h2>
+      </header>
+      <pre>
+        <code>var arr = new Array(1000),</code>
+        <code>    len, i;</code>
+        <code>for (i = 0; i < arr.length; i++) {</code>
+        <code>  // Bad - size needs to be recalculated 1000 times</code>
+        <code>}</code>
+        <code>for (i = 0, len = arr.length; i < len; i++) {</code>
+        <code>  // Good - size is calculated only 1 time and then stored</code>
+        <code>}</code>
+      </pre>
+      <footer class="notes">
+      The loop is undoubtedly one of the most important parts related to JavaScript performance. Try to optimize the logic inside a loop so that each iteration is done efficiently. One way to do this is to store the size of the array that will be covered, so it doesn't need to be recalculated every time the loop is iterated.
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="write" class="slide"><div>
+    <section>
+      <header>
+        <h2>Avoid document.write</h2>
+      </header>
+      <pre>
+        <code><script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script></code>
+        <code><script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.0.min.js"><\/script>')</script></code> 
+      </pre>
+      <footer class="notes">
+      The use of document.write causes a dependency to the page on its return to be fully loaded. HTML5 Boilerplate, for example, uses this technique to load jQuery locally if Google's CDN doesn't respond. Attention: document.write performed during or after window.onload event replaces the entire content of the current page.
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="repaint" class="slide"><div>
+    <section>
+      <header>
+        <h2>  Minimize Repaints and Reflows</h2>
+      </header>
+      <pre>
+        <code>var div = document.getElementById("to-measure"),</code>
+        <code>    lis = document.getElementsByTagName('li'),</code>
+        <code>    i, len;</code>
+        <code>for (i = 0, len = lis.length; i < len; i++) {</code>
+        <code>  lis[i].style.width = div.offsetWidth + 'px';</code>
+        <code>}</code>
+      </pre>
+      <footer class="notes">
+      Repaints and reflows are caused when there's any process of re-rendering the DOM when certain property or element is changed.
+
+Repaints are triggered when the appearance of an element is changed without changing its layout. Nicole Sullivan describes this as a change of styles like changing a background-color.
+
+Reflows are the most costly, since they are caused by changing the page layout, such as change the width of an element.
+      </footer>
+    </section>
+  </div></div>
+
+    <div id="dom" class="slide"><div>
+    <section>
+      <header>
+        <h2>  Avoid unnecessary DOM manipulations</h2>
+      </header>
+      <pre>
+        <code>for (var i = 0; i < 100; i++) {</code>
+        <code>  document.getElementById("myList").innerHTML += "<span>" + i + "</span>";</code>
+        <code>}</code>
+      </pre>
+      <pre>
+        <code>var myList = "";</code>
+        <code>for (var i = 0; i < 100; i++) {</code>
+        <code>  myList += "<span>" + i + "</span>";</code>
+        <code>}</code>
+        <code>document.getElementById("myList").innerHTML = myList;</code>
+      </pre>
+      <footer class="notes">
+      Everytime you touch the DOM, unnecessarily, a panda dies.
+
+Seriously, navigating the DOM is costly. Even though JavaScript engines have become increasingly powerful and fast, always try to optimize queries of the DOM.
+
+One of the simplest practices to adopt is, when an element has to be accessed more than once, save it in a variable, so you don't need to query the DOM multiple times.
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="minify-js" class="slide"><div>
+    <section>
+      <header>
+        <h2>  Minify your script</h2>
+      </header>
+      <pre>
+       <code>WebPerformance101.app = function() {</code>
+        <code>  var foo = true;</code>
+        <code>  return {</code>
+        <code>    bar: function() {</code>
+        <code>      // do something</code>
+        <code>    }</code>
+        <code>  };</code>
+        <code>};</code>
+      </pre>
+      <pre>
+        <code>WebPerformance101.app=function(){var a=!0;return{bar:function(){}}}</code>
+      </pre>
+      <footer class="notes">
+      Just like CSS, to maintain readable code, it's a good idea to write comments and use indentation. But to the browser, none of this actually matters. For this reason, always remember to minify your JavaScript through automated tools. This will shave bytes from the filesize, which results in faster downloads, parsing and execution.
+      </footer>
+    </section>
+  </div></div>
+
+    <div id="combine-js" class="slide cover w"><div>
+    <section>
+      <header>
+        <h2>Combine multiple JS files into one</h2>
+      </header>
+      <img src="pictures/codecamp/combine-js.png" 
+           class="middle" 
+           alt="JS">
+      <footer class="notes">
+      Another best practice for organization and maintenance of scripts is to separate them into modular components. However, an HTTP request is required for each one of these files (and we know that browsers can only download a limited number resources in parallel). So combine your JS. Having a smaller number of files will result in a smaller number of requests and a faster loading page. Want to have the best of both worlds? Automate this process through a build tool.
+      </footer>
+    </section>
+  </div></div>
+
+
+  <div id="serveroneline" class="slide cover w"><div>
+    <section>
+      <header>
+        <h2><strong>Server</strong></h2>
+      </header>
+      <img src="pictures/codecamp/server.jpeg" 
+           class="middle" 
+           alt="server">
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="smart-cache" class="slide"><div>
+    <section>
+      <header>
+        <h2>Enable smart caching</h2>
+      </header>
+      <pre>
+       <code>ExpiresActive On</code>
+        <code>ExpiresByType image/gif "access plus 6 months"</code>
+        <code>ExpiresByType image/jpeg "access plus 6 months"</code>
+        <code>ExpiresByType image/png "access plus 6 months"</code>
+        <code>ExpiresByType text/css "access plus 6 months"</code>
+        <code>ExpiresByType text/javascript "access plus 6 months"</code>
+        <code>ExpiresByType application/javascript "access plus 6 months"</code>
+      </pre>
+      <footer class="notes">
+      The best way to optimize requests made from your page is to not make requests, obviously. And one of the most useful ways to avoid unnecessary requests is to let the browser cache assets. By default, the browser is left to decide how long to cache files. But we can control the exact time that a file will be kept in cache.
+This type of configuration is done on the server (and will depend on which server setup you have). With Apache, for example, you can add the following configuration in an .htaccess file.
+      </footer>
+    </section>
+  </div></div>
+
+    <div id="gzip" class="slide"><div>
+    <section>
+      <header>
+        <h2>gzip</h2>
+      </header>
+      <pre>
+      <code>AddOutputFilterByType DEFLATE text/plain</code>
+      <code>AddOutputFilterByType DEFLATE text/xml</code>
+      <code>AddOutputFilterByType DEFLATE text/css</code>
+      <code>AddOutputFilterByType DEFLATE application/javascript</code>
+      </pre>
+      <footer class="notes">
+      A large percentage of a site's content is simple text (HTML, CSS, JavaScript, JSON, XML, etc.). For this kind of content, it's good practice to turn on GZIP compression at the server level.
+
+GZIP compresses data on the server before sending it over the network to the user's browser, which decodes it on the fly for the user. It's just like zipping up a file before sending to someone to make it smaller. All modern browsers and servers support GZIP.
+
+Configuration is set up on the server. On Apache, for example, you can edit the .htaccess file and turn on GZIP for the types of files that you want.
+      </footer>
+    </section>
+  </div></div>
+
+
+  <div id="toolsoneline" class="slide cover w"><div>
+    <section>
+      <header>
+        <h2>Tools</h2>
+      </header>
+      <img src="pictures/codecamp/tools.JPG" 
+           class="middle" 
+           alt="tools">
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="diagnostic" class="slide"><div>
+    <section>
+      <header>
+        <h2>Diagnostic</h2>
+      </header>
+      <ul>
+        <li>YSlow</li>
+        <li>PageSpeed</li>
+        <li>WebPageTest</li>
+        <li>DOM Monster</li>
+        <li>Sloppy</li>
+      </ul>
+      <footer class="notes">
+      </footer>
+    </section>
+ </div></div>
+
+   <div id="minify" class="slide"><div>
+    <section>
+      <header>
+        <h2>Minifiers</h2>
+      </header>
+      <ul>
+        <li>HTML Minifier</li>
+        <li>HTML Compressor</li>
+        <li>CSS Minifier</li>
+        <li>YUI Compressor</li>
+        <li>Google Closure Compiler</li>
+        <li>UglifyJS</li>
+      </ul>
+      <footer class="notes">
+      </footer>
+    </section>
+ </div></div>
+
+ <div id="compress" class="slide"><div>
+    <section>
+      <header>
+        <h2>Combine multiple files</h2>
+      </header>
+      <ul>
+        <li>grunt-contrib-concat</li>
+        <li>borschik</li>
+      </ul>
+      <footer class="notes">
+      </footer>
+    </section>
+ </div></div>
+
+ <div id="spriting" class="slide"><div>
+    <section>
+      <header>
+        <h2>Sprites</h2>
+      </header>
+      <ul>
+         <li><a href="http://wearekiss.com/spritepad">SpritePad</a></li>
+        <li><a href="http://compass-style.org/help/tutorials/spriting/">Compass Sprite Generator</a></li>
+        <li><a href="http://www.spriteme.org/">SpriteMe</a></li>
+        <li><a href="http://www.spritecow.com/">Sprite Cow</a></li>
+        <li><a href="https://github.com/jorgebastida/glue">glue</a></li>
+        <li><a href="http://www.codeandweb.com/texturepacker">Texture Packer</a></li>
+        <li><a href="http://draeton.github.com/stitches/">Stitches</a></li>
+        <li><a href="http://instantsprite.com/">Instant Sprite</a></li>
+      </ul>
+      <footer class="notes">
+      </footer>
+    </section>
+ </div></div>
+
+ <div id="tdata" class="slide"><div>
+    <section>
+      <header>
+        <h2>Data URI</h2>
+      </header>
+      <ul>
+         <li><a href="https://developers.google.com/speed/docs/mod_pagespeed/filter-image-optimize">mod_pagespeed</a></li>
+<li><a href="http://dopiaza.org/tools/datauri/index.php">data: URI Generator</a></li>
+<li><a href="https://github.com/heldr/datauri">data-uri.js</a></li>
+<li><a href="https://github.com/mathiasbynens/dotfiles/blob/master/.functions">dataurl bash function (line 51)</a></li>
+      </ul>
+      <footer class="notes">
+      </footer>
+    </section>
+ </div></div>
+
+
+  <div id="top-5" class="slide"><div>
+    <section>
+      <header>
+        <h2>Top 5</h2>
+      </header>
+      <ul class="inner">
+        <li class="active">gzip</li>
+        <li>combine multiple files of the same type</li>
+        <li>SPRITES!</li>
+        <li>minimize repaints and reflows</li>
+        <li>minify everithing</li>
+      </ul>
+      <footer class="notes">
+    These are the most important things to do. Most of them come cheap and the increase in performance is enourmous.
+      </footer>
+    </section>
+ </div></div>
+
+  <div id="thanks" class="slide"><div>
+    <section>
+      <header>
+        <h2>Thanks</h2>
+      </header>
+      <ul class="nobull">
+        <li>Alex Lakatos</li>
+        <li>JavaScript Performance Engineer</li>
+        <li><a href="http://twitter.com/lakatos88">@lakatos88</a></li>
+        <li><strong>Slides</strong>: 
+          <a href="http://alexlakatos.github.io/slides/codecamp/">alexlakatos.github.io/slides/codecamp</a>
+        </li>
+      </ul>
+
+    <footer class="notes">
+    </footer>
+
+    </section>
+  </div></div>
+
+  <!--
+    To hide progress bar from entire presentation
+    just remove “progress” element.
+    -->
+  <div class="progress"><div></div></div>
+  <script src="scripts/script.js"></script>
+  <!-- Copyright © 2010–2012 Vadim Makeev — pepelsbey.net -->
+</body>
+</html>
