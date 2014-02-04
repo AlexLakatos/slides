@@ -1,0 +1,2476 @@
+<!DOCTYPE html>
+<html>
+	<head lang"en-US" dir="ltr">
+		<meta charset="utf-8" />
+		<title>GitHub Foundations Course Slides</title>
+		<!--Style-->
+		<link rel="stylesheet" href="dependencies/themes/github/css/theme.css">
+		
+				<meta charset="utf-8">
+<title>GitHub Foundations Course Slides</title>
+
+<meta name="description" content="A slide deck to the GitHub Foundations class.">
+<meta name="author" content="Jordan McCullough">
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+<script>
+	document.write( '<link rel="stylesheet" href="dependencies/revealjs/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+</script>
+
+<!--[if lt IE 9]>
+<script src="../dependencies/revealjs/lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<!--SVG Injection Library-->
+<script src="dependencies/snap-svg/dist/snap.svg-min.js"></script>
+
+<!--GitHub Style-->
+
+	
+
+
+			</head>
+			<body>
+				<div class="reveal" id="reveal">
+	<div class="slides">
+		
+			<!--Capture the chapter index value-->
+			
+
+			<!--Nest all chapter's content. Chapters traverse left-right; Sections slide up-down-->
+			<section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+						
+					
+
+					<section class="cover">
+						<h1>Git Basic Training</h1>
+						<h2 class="hidden">Preroll</h2>
+						<div class="clear-all"></div>
+						<hr />
+
+
+<p><aside class="notes"></p>
+
+<ul>
+<li>Ask at any time. Do not wait!</li>
+<li>Share in the conversation</li>
+</ul>
+
+
+<p></aside></p>
+
+
+					</section>
+				
+			</section>
+		
+			<!--Capture the chapter index value-->
+			
+
+			<!--Nest all chapter's content. Chapters traverse left-right; Sections slide up-down-->
+		
+			<!--Capture the chapter index value-->
+			
+
+			<!--Nest all chapter's content. Chapters traverse left-right; Sections slide up-down-->
+			<section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+						
+							<section class="cover">
+								<h1>Git</h1>
+							</section>
+						
+					
+
+					<section>
+						<h1 >Git</h1>
+						<h2 >The Brief Tour</h2>
+						<div class="clear-all"></div>
+
+						
+
+						<p>One folder. The entire repository.</p>
+
+<p><aside class="notes"></p>
+
+<p>The .git folder contains the entire repository, file structure, directory tree, and commit history.</p>
+
+
+
+
+<p>The items we're interested in for starters:
+* HEAD
+* config
+* index
+* logs
+* objects</p>
+
+
+<p></aside></p>
+
+
+					</section>
+				
+			</section>
+		
+			<!--Capture the chapter index value-->
+			
+
+			<!--Nest all chapter's content. Chapters traverse left-right; Sections slide up-down-->
+			<section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+						
+							<section class="cover">
+								<h1>Setup</h1>
+							</section>
+						
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+
+					<section>
+						<h1 class="hidden">Setup</h1>
+						<h2 class="hidden">Github Installers</h2>
+						<div class="clear-all"></div>
+
+						
+
+						<div class="sticky">
+    <span><i class="icon-cloud-download"> </i></span>
+    Git is easy to install.
+    <a href="http://git-scm.com/">git-scm.com/</a>
+</div>
+
+
+
+					</section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+
+					<section>
+						<h1 >Setup</h1>
+						<h2 >Git Version</h2>
+						<div class="clear-all"></div>
+
+						
+
+						<p>Test the Install. Check your Version</p>
+
+<pre><code>$ git --version
+</code></pre>
+
+<p><aside class="notes"></p>
+
+<p>Git <strong>binaries</strong> are on your <code>$path</code></p>
+
+
+<p></aside></p>
+
+
+					</section>
+				
+			</section>
+		
+			<!--Capture the chapter index value-->
+			
+
+			<!--Nest all chapter's content. Chapters traverse left-right; Sections slide up-down-->
+			<section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+						
+							<section class="cover">
+								<h1>Config</h1>
+							</section>
+						
+					
+
+					<section>
+						<h1 >Config</h1>
+						<h2 >User Information</h2>
+						<div class="clear-all"></div>
+
+						
+
+						<pre><code>git config --global user.name 
+    "&lt;your-name&gt;"
+git config --global user.email 
+    "&lt;you&gt;@&lt;your-domain&gt;.com"
+</code></pre>
+
+
+					</section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+
+					<section>
+						<h1 >Config</h1>
+						<h2 >Scopes</h2>
+						<div class="clear-all"></div>
+
+						
+
+						<p><strong>system</strong> configuration</p>
+
+<pre><code>git config --system &lt;name&gt; &lt;value&gt;
+</code></pre>
+
+<p><strong>user</strong> configuration</p>
+
+<pre><code>git config --global &lt;name&gt; &lt;value&gt;
+</code></pre>
+
+<p><strong>repository</strong> configuration</p>
+
+<pre><code>git config --local &lt;name&gt; &lt;value&gt;
+</code></pre>
+
+
+					</section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+
+					<section>
+						<h1 >Config</h1>
+						<h2 >Viewing All</h2>
+						<div class="clear-all"></div>
+
+						
+
+						<pre><code>git config --list
+</code></pre>
+
+<p><aside class="notes"></p>
+
+<p>list all config values</p>
+
+
+<p></aside></p>
+
+
+					</section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+
+					<section>
+						<h1 >Config</h1>
+						<h2 >Useful Settings</h2>
+						<div class="clear-all"></div>
+
+						
+
+						<pre><code>#Colorize console output for legibility
+git config --global color.ui auto
+
+#Force files to be LF on Mac/Linux
+git config --global core.autocrlf input
+
+#Force Windows to convert to CRLF
+# on checkout and to LF on `add`
+git config --global core.autocrlf true
+</code></pre>
+
+<p><aside class="notes"></p>
+
+<p>Warn, but allow line ending conversion to proceed (the default)
+git config --global core.safecrlf warn</p>
+
+
+
+
+<p>Do not allow line ending conversion to proceed
+git config --global core.safecrlf true</p>
+
+
+
+
+<p>http://help.github.com/dealing-with-lineending</p>
+
+
+<p></aside></p>
+
+
+					</section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+				
+			</section>
+		
+			<!--Capture the chapter index value-->
+			
+
+			<!--Nest all chapter's content. Chapters traverse left-right; Sections slide up-down-->
+			<section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+						
+							<section class="cover">
+								<h1>Init</h1>
+							</section>
+						
+					
+
+					<section>
+						<h1 >Init</h1>
+						<h2 >Repository From Scratch</h2>
+						<div class="clear-all"></div>
+
+						
+
+						<pre><code># New project
+$ git init newproject
+$ cd newproject
+# ...start coding
+</code></pre>
+
+<p><aside class="notes"></p>
+
+<p>Creating a new repository is a simple as typing the git init command.</p>
+
+
+
+
+<p>Hand in a project directory name, and you're ready to begin.</p>
+
+
+<p></aside></p>
+
+
+					</section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+
+					<section>
+						<h1 >Init</h1>
+						<h2 >Repository From Existing Dir</h2>
+						<div class="clear-all"></div>
+
+						
+
+						<pre><code># Legacy project tree
+$ cd existingproject
+$ git init
+
+# Add all the code
+$ git add .
+$ git commit -m ”Initial import” 
+</code></pre>
+
+<p><aside class="notes"></p>
+
+<p>If you already have an existing repository:</p>
+
+
+
+
+<ul>
+<li>Change directory into the root project</li>
+<li>type git init</li>
+<li>Add all files</li>
+</ul>
+
+
+<p></aside></p>
+
+
+					</section>
+				
+			</section>
+		
+			<!--Capture the chapter index value-->
+			
+
+			<!--Nest all chapter's content. Chapters traverse left-right; Sections slide up-down-->
+			<section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+						
+							<section class="cover">
+								<h1>Commit</h1>
+							</section>
+						
+					
+
+					<section>
+						<h1 >Commit</h1>
+						<h2 >Three Stage Thinking</h2>
+						<div class="clear-all"></div>
+
+						
+							
+								
+							
+							<svg version="1.1"
+								width="100%"
+								height="100%"
+								data-path="assets/diagrams/commit-three-stage.svg"
+								id="canvas-6-1"
+								preserveAspectRatio="xMidyMid"
+								viewBox="0 0 100 100"></svg>
+						
+
+						
+
+
+					</section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+
+					<section>
+						<h1 >Commit</h1>
+						<h2 >Shopping Cart</h2>
+						<div class="clear-all"></div>
+
+						
+
+						<ul>
+<li>Put things in <em>(stage)</em></li>
+<li>Take things out <em>(unstage)</em></li>
+<li>Purchase at register <em>(commit)</em></li>
+</ul>
+
+
+<p><aside class="notes"></p>
+
+<h1>Shopping Cart</h1>
+
+
+
+
+<ul>
+<li>put things in</li>
+<li>take things out</li>
+<li>purchase at register</li>
+</ul>
+
+
+<p></aside></p>
+
+
+					</section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+
+					<section>
+						<h1 >Commit</h1>
+						<h2 >Your First Commit</h2>
+						<div class="clear-all"></div>
+
+						
+
+						<pre><code>git add &lt;filename&gt;
+git status
+git commit -m "Helpful message"
+</code></pre>
+
+<p><aside class="notes"></p>
+
+<p>Leave off -m to edit commit message in vi</p>
+
+
+
+
+<p>Cleared out the entire message? Commit will abort</p>
+
+
+<p></aside></p>
+
+
+					</section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+
+					<section>
+						<h1 >Commit</h1>
+						<h2 >What Is A Commit</h2>
+						<div class="clear-all"></div>
+
+						
+							
+								
+							
+							<svg version="1.1"
+								width="100%"
+								height="100%"
+								data-path="assets/diagrams/commit-data-structure.svg"
+								id="canvas-6-4"
+								preserveAspectRatio="xMidyMid"
+								viewBox="0 0 100 100"></svg>
+						
+
+						<p><aside class="notes"></p>
+
+<ul>
+<li>Git folder is a directory "database" of snapshots for every commit</li>
+<li><code>.git</code> folder contains files, directories</li>
+<li><code>.git</code> is the <em>entire</em> repository</li>
+<li><code>/objects</code> contains all commits, blob, trees</li>
+</ul>
+
+
+<p></aside></p>
+
+
+					</section>
+
+				
+			</section>
+		
+			<!--Capture the chapter index value-->
+			
+
+			<!--Nest all chapter's content. Chapters traverse left-right; Sections slide up-down-->
+			<section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+						
+							<section class="cover">
+								<h1>Diff</h1>
+							</section>
+						
+					
+
+					<section>
+						<h1 >Diff</h1>
+						<h2 >Comparing Changes</h2>
+						<div class="clear-all"></div>
+
+						
+							
+								
+							
+							<svg version="1.1"
+								width="100%"
+								height="100%"
+								data-path="assets/diagrams/diff-working-tree.svg"
+								id="canvas-7-1"
+								preserveAspectRatio="xMidyMid"
+								viewBox="0 0 100 100"></svg>
+						
+
+						<pre><code># Show the unstaged changes
+$ git diff
+</code></pre>
+
+<p><aside class="notes"></p>
+
+<p>Working copy to staging</p>
+
+
+<p></aside></p>
+
+
+					</section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+
+					<section>
+						<h1 >Diff</h1>
+						<h2 >Comparing To Staged</h2>
+						<div class="clear-all"></div>
+
+						
+							
+								
+							
+							<svg version="1.1"
+								width="100%"
+								height="100%"
+								data-path="assets/diagrams/diff-staging-area.svg"
+								id="canvas-7-2"
+								preserveAspectRatio="xMidyMid"
+								viewBox="0 0 100 100"></svg>
+						
+
+						<pre><code># Show the staged changes
+$ git diff --staged
+</code></pre>
+
+<p><aside class="notes"></p>
+
+<p>Staged to commited changes</p>
+
+
+<p></aside></p>
+
+
+					</section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+
+					<section>
+						<h1 >Diff</h1>
+						<h2 >Comparing To Repo</h2>
+						<div class="clear-all"></div>
+
+						
+							
+								
+							
+							<svg version="1.1"
+								width="100%"
+								height="100%"
+								data-path="assets/diagrams/diff-head.svg"
+								id="canvas-7-3"
+								preserveAspectRatio="xMidyMid"
+								viewBox="0 0 100 100"></svg>
+						
+
+						<pre><code># Show uncommitted changes
+$ git diff HEAD
+</code></pre>
+
+<p><aside class="notes"></p>
+
+<p>Working copy to commited changes</p>
+
+
+<p></aside></p>
+
+
+					</section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+
+					<section>
+						<h1 >Diff</h1>
+						<h2 >Useful Options</h2>
+						<div class="clear-all"></div>
+
+						
+
+						<pre><code>git diff --color-words
+git diff --word-diff
+git diff --stat
+</code></pre>
+
+<p><aside class="notes"></p>
+
+<pre><code># Added (A)
+# Copied (C)
+# Deleted (D)
+# Modified (M)
+# Renamed (R)
+# Type changed (T)
+# Unmerged (U)
+# Unknown (X)
+# Pairing Broken (B)
+# Only show changes in modified files
+git diff --diff-filter=M
+</code></pre>
+
+
+<p></aside></p>
+
+
+					</section>
+				
+			</section>
+		
+			<!--Capture the chapter index value-->
+			
+
+			<!--Nest all chapter's content. Chapters traverse left-right; Sections slide up-down-->
+			<section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+						
+							<section class="cover">
+								<h1>Log</h1>
+							</section>
+						
+					
+
+					<section>
+						<h1 >Log</h1>
+						<h2 >Show All History</h2>
+						<div class="clear-all"></div>
+
+						
+
+						<pre><code>git log
+</code></pre>
+
+
+					</section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+
+					<section>
+						<h1 >Log</h1>
+						<h2 >Show History Patches</h2>
+						<div class="clear-all"></div>
+
+						
+
+						<pre><code># Show all history with filenames
+git log --stat
+
+# Show all history with patches
+git log --patch
+</code></pre>
+
+
+					</section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+
+					<section>
+						<h1 >Log</h1>
+						<h2 >History Formatting</h2>
+						<div class="clear-all"></div>
+
+						
+
+						<pre><code># Control the output format
+git log --format=full
+
+# Control the output format
+git log --format=fuller
+
+# Control the output format
+git log --format=raw
+</code></pre>
+
+<p><aside class="notes"></p>
+
+<h1>Control the output format</h1>
+
+
+
+
+<p>git log --format=email</p>
+
+
+
+
+<h1>Control the output format</h1>
+
+
+
+
+<p>git log --format=format:<pattern></p>
+
+
+<p></aside></p>
+
+
+					</section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+
+					<section>
+						<h1 >Log</h1>
+						<h2 >Limiting Output</h2>
+						<div class="clear-all"></div>
+
+						
+
+						<pre><code># Limit the output entries
+git log -&lt;n&gt;
+
+git log -1
+git log -3
+git log -5
+</code></pre>
+
+
+					</section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+
+					<section>
+						<h1 >Log</h1>
+						<h2 >Additional Options</h2>
+						<div class="clear-all"></div>
+
+						
+
+						<pre><code>git log --word-diff --patch
+git log --graph
+</code></pre>
+
+
+					</section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+
+					<section>
+						<h1 >Log</h1>
+						<h2 >Searching Commits</h2>
+						<div class="clear-all"></div>
+
+						
+
+						<pre><code>git log -S &lt;string-in-patch&gt;
+
+git log --grep="regex-pattern"
+</code></pre>
+
+<p><aside class="notes"></p>
+
+<p></aside></p>
+
+
+					</section>
+				
+			</section>
+		
+			<!--Capture the chapter index value-->
+			
+
+			<!--Nest all chapter's content. Chapters traverse left-right; Sections slide up-down-->
+			<section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+						
+							<section class="cover">
+								<h1>Remove & Move</h1>
+							</section>
+						
+				
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+
+					<section>
+						<h1 >Remove & Move</h1>
+						<h2 >Deleting Files</h2>
+						<div class="clear-all"></div>
+
+						
+
+						<pre><code># Directly remove &amp; stage
+$ git rm &lt;FILENAME&gt;
+</code></pre>
+
+<p><aside class="notes"></p>
+
+<p>Removes (deletes!) the file, stages deletion</p>
+
+
+<p></aside></p>
+
+
+					</section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+
+					<section>
+						<h1 >Remove & Move</h1>
+						<h2 >Stop Tracking</h2>
+						<div class="clear-all"></div>
+
+						
+
+						<pre><code># Stop file tracking
+$ git rm --cached -- &lt;filename&gt;
+</code></pre>
+
+
+					</section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+
+					<section>
+						<h1 >Remove & Move</h1>
+						<h2 >Move And Stage</h2>
+						<div class="clear-all"></div>
+
+						
+
+						<pre><code>$ git mv &lt;FILENAME&gt; &lt;NEWFILENAME&gt;
+
+# Move with OS or tool,
+mv &lt;FILENAME&gt; &lt;NEWFILENAME&gt;
+# Then follow up with git add
+git add -A .
+</code></pre>
+
+<p><aside class="notes"></p>
+
+<ul>
+<li>Moving generates new tree, not a new blob
+
+<ul>
+<li>Hash will be differ</li>
+</ul>
+</li>
+</ul>
+
+
+<p></aside></p>
+
+
+					</section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+
+					<section>
+						<h1 >Remove & Move</h1>
+						<h2 >Similarity Index</h2>
+						<div class="clear-all"></div>
+
+						
+
+						<pre><code># Renames shown
+git log --stat -M
+
+# Show commits from previous filename
+git log --follow &lt;file&gt;
+</code></pre>
+
+<p><aside class="notes"></p>
+
+<ul>
+<li>Note "100%" on commit output</li>
+<li>Copies &amp; renames shown with
+
+<ul>
+<li>(superset of -M)</li>
+<li>git log --stat -C</li>
+</ul>
+</li>
+</ul>
+
+
+<p></aside></p>
+
+
+					</section>
+				
+			</section>
+		
+			<!--Capture the chapter index value-->
+			
+
+			<!--Nest all chapter's content. Chapters traverse left-right; Sections slide up-down-->
+			<section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+						
+							<section class="cover">
+								<h1>Ignore</h1>
+							</section>
+						
+					
+
+					<section>
+						<h1 >Ignore</h1>
+						<h2 >Ignoring Files</h2>
+						<div class="clear-all"></div>
+
+						
+
+						<ul>
+<li>Create a <code>.gitignore</code> file</li>
+<li>Add patterns, one-per-line</li>
+</ul>
+
+
+
+					</section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+
+					<section>
+						<h1 >Ignore</h1>
+						<h2 >Ignore Patterns</h2>
+						<div class="clear-all"></div>
+
+						
+
+						<pre><code># Anything ending ".log"
+*.log
+
+# Directories with specific name
+archives/
+
+# Directory-name patterns
+log*/
+</code></pre>
+
+<p><aside class="notes"></p>
+
+<ul>
+<li>Glob patterns, one per line</li>
+<li>Ignores only apply to <code>dir</code>s with file content</li>
+</ul>
+
+
+<p></aside></p>
+
+
+					</section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+
+					<section>
+						<h1 >Ignore</h1>
+						<h2 >Controlling Ignores</h2>
+						<div class="clear-all"></div>
+
+						
+
+						<ul>
+<li>Nest .gitignore file for granular control</li>
+<li>Reverse ignore patterns with <code>!</code> patterns</li>
+</ul>
+
+
+<p><aside class="notes"></p>
+
+<ul>
+<li>Use empty .gitignore for scaffolding <code>dir</code>s</li>
+</ul>
+
+
+<p></aside></p>
+
+
+					</section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+
+					<section>
+						<h1 >Ignore</h1>
+						<h2 >Excludes File</h2>
+						<div class="clear-all"></div>
+
+						
+
+						<p>Avoid committing undesired environment files</p>
+
+<ul>
+<li>Create a machine-specific ignore</li>
+<li>Save the file outside of the repo</li>
+</ul>
+
+
+
+					</section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+
+					<section>
+						<h1 >Ignore</h1>
+						<h2 >Excludes File</h2>
+						<div class="clear-all"></div>
+
+						
+
+						<pre><code>$ git config --global core.excludesfile 
+    "~/.gitignore"
+
+
+# Common system and editor temp files
+thumbs.db
+.DS_Store
+</code></pre>
+
+
+					</section>
+				
+			</section>
+		
+			<!--Capture the chapter index value-->
+			
+
+			<!--Nest all chapter's content. Chapters traverse left-right; Sections slide up-down-->
+			<section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+						
+							<section class="cover">
+								<h1>Checkout</h1>
+							</section>
+						
+					
+
+					<section>
+						<h1 >Checkout</h1>
+						<h2 >Purpose Of Checkout</h2>
+						<div class="clear-all"></div>
+
+						
+
+						<ul>
+<li><em>Aborting</em> Changes</li>
+<li><em>Exploring</em> Commits</li>
+<li><em>Changing</em> Branches</li>
+</ul>
+
+
+<p><aside class="notes"></p>
+
+<ul>
+<li>Used for changing branches, inspecting past commits</li>
+<li>Permits restoring working directory changes to prior commit</li>
+</ul>
+
+
+<p></aside></p>
+
+
+					</section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+
+					<section>
+						<h1 >Checkout</h1>
+						<h2 >Discarding Changes</h2>
+						<div class="clear-all"></div>
+
+						
+
+						<pre><code>$ git checkout -- &lt;file&gt;
+</code></pre>
+
+<p><aside class="notes"></p>
+
+<ul>
+<li>Discard working-copy file changes</li>
+</ul>
+
+
+<p></aside></p>
+
+
+					</section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+
+					<section>
+						<h1 >Checkout</h1>
+						<h2 >Switching Branches</h2>
+						<div class="clear-all"></div>
+
+						
+
+						<pre><code>$ git checkout &lt;branch-name&gt;
+</code></pre>
+
+<p><aside class="notes"></p>
+
+<ul>
+<li>Change branches</li>
+<li>Switch to commit to different HEAD</li>
+</ul>
+
+
+<p></aside></p>
+
+
+					</section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+
+					<section>
+						<h1 >Checkout</h1>
+						<h2 >Exploring History</h2>
+						<div class="clear-all"></div>
+
+						
+
+						<pre><code>$ git checkout &lt;rev&gt;
+</code></pre>
+
+<p><aside class="notes"></p>
+
+<ul>
+<li>Explore history (detached HEAD)</li>
+</ul>
+
+
+<p></aside></p>
+
+
+					</section>
+				
+			</section>
+		
+			<!--Capture the chapter index value-->
+			
+
+			<!--Nest all chapter's content. Chapters traverse left-right; Sections slide up-down-->
+			<section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+						
+							<section class="cover">
+								<h1>Branch</h1>
+							</section>
+						
+					
+
+					<section>
+						<h1 >Branch</h1>
+						<h2 >Flexibility</h2>
+						<div class="clear-all"></div>
+
+						
+
+						<ul>
+<li>Branches are <em>cheap</em></li>
+<li>Branches are <em>safe</em></li>
+<li>Branches are <em>flexible</em></li>
+</ul>
+
+
+
+					</section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+
+					<section>
+						<h1 >Branch</h1>
+						<h2 >Listing</h2>
+						<div class="clear-all"></div>
+
+						
+
+						<pre><code>#List (Local) Branches
+git branch
+</code></pre>
+
+<p><aside class="notes"></p>
+
+<h1>List remote branches</h1>
+
+
+
+
+<p>git branch -r</p>
+
+
+
+
+<h1>List all branches</h1>
+
+
+
+
+<p>git branch -a</p>
+
+
+
+
+<h1>List upstream branches</h1>
+
+
+
+
+<p>git ls-remote origin</p>
+
+
+<p></aside></p>
+
+
+					</section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+
+					<section>
+						<h1 >Branch</h1>
+						<h2 >Creating</h2>
+						<div class="clear-all"></div>
+
+						
+
+						<pre><code>git branch &lt;branchname&gt; &lt;ref&gt;
+
+#Create &amp; Checkout branch
+git checkout -b &lt;branchname&gt; &lt;ref&gt;
+</code></pre>
+
+<p><aside class="notes"></p>
+
+<p><code>git branch &lt;BRANCHNAME&gt; HEAD</code></p>
+
+
+
+
+<p>HEAD is assumed when REF left off</p>
+
+
+
+
+<p>Branch as experiments
+What do cheap branches enable?
+Create a branch for an experiment; Delete the failed experiment
+Branches cost a mere 20 bytes</p>
+
+
+
+
+<p>Branch from the master branch
+Merge from the topic branch
+Destroy the topic branch</p>
+
+
+<p></aside></p>
+
+
+					</section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+
+					<section>
+						<h1 >Branch</h1>
+						<h2 >Deleting</h2>
+						<div class="clear-all"></div>
+
+						
+
+						<pre><code># Delete if branch is merged with upstream
+git branch -d &lt;branch-name&gt;
+
+# Delete regardless of merge condition
+git branch -D &lt;branch-name&gt;
+</code></pre>
+
+
+					</section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+
+					<section>
+						<h1 >Branch</h1>
+						<h2 >Renaming</h2>
+						<div class="clear-all"></div>
+
+						
+
+						<pre><code># Change branch name
+git branch -m 
+    &lt;orig-branch-name&gt; &lt;new-branch-name&gt;
+</code></pre>
+
+
+					</section>
+				
+			</section>
+		
+			<!--Capture the chapter index value-->
+			
+
+			<!--Nest all chapter's content. Chapters traverse left-right; Sections slide up-down-->
+			<section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+						
+							<section class="cover">
+								<h1>Merge</h1>
+							</section>
+						
+					
+
+					<section>
+						<h1 >Merge</h1>
+						<h2 >Basics</h2>
+						<div class="clear-all"></div>
+
+						
+
+						<pre><code>git checkout master
+git merge &lt;featurebranch&gt; -m&lt;message&gt;
+</code></pre>
+
+<p><aside class="notes"></p>
+
+<p>(diagram: recursive merge)</p>
+
+
+<p></aside></p>
+
+
+					</section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+
+					<section>
+						<h1 >Merge</h1>
+						<h2 >Recursive</h2>
+						<div class="clear-all"></div>
+
+						
+							
+								
+							
+							<svg version="1.1"
+								width="100%"
+								height="100%"
+								data-path="assets/diagrams/merge-recursive.svg"
+								id="canvas-13-2"
+								preserveAspectRatio="xMidyMid"
+								viewBox="0 0 100 100"></svg>
+						
+
+						
+
+
+					</section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+
+					<section>
+						<h1 >Merge</h1>
+						<h2 >Fast Forward</h2>
+						<div class="clear-all"></div>
+
+						
+							
+								
+							
+							<svg version="1.1"
+								width="100%"
+								height="100%"
+								data-path="assets/diagrams/merge-fast-forward.svg"
+								id="canvas-13-3"
+								preserveAspectRatio="xMidyMid"
+								viewBox="0 0 100 100"></svg>
+						
+
+						<p><aside class="notes"></p>
+
+<p>(diagram: conflicting merge)</p>
+
+
+<p></aside></p>
+
+
+					</section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+
+					<section>
+						<h1 >Merge</h1>
+						<h2 >Conflicting Merges</h2>
+						<div class="clear-all"></div>
+
+						
+
+						<pre><code>git add &lt;conflicting-file&gt;
+git commit -m"&lt;commit-message&gt;"
+</code></pre>
+
+
+					</section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+
+					<section>
+						<h1 >Merge</h1>
+						<h2 >Resolution Selection</h2>
+						<div class="clear-all"></div>
+
+						
+
+						<pre><code>git checkout --ours &lt;file&gt;
+git checkout --theirs &lt;file&gt;
+</code></pre>
+
+
+					</section>
+				
+			</section>
+		
+			<!--Capture the chapter index value-->
+			
+
+			<!--Nest all chapter's content. Chapters traverse left-right; Sections slide up-down-->
+			<section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+						
+							<section class="cover">
+								<h1>Rebase</h1>
+							</section>
+						
+					
+
+					<section>
+						<h1 >Rebase</h1>
+						<h2 >Reasons</h2>
+						<div class="clear-all"></div>
+
+						
+
+						<ul>
+<li>Preparing for a merge</li>
+<li>Reordering chosen commits</li>
+<li>Rewriting history into units</li>
+</ul>
+
+
+<p><aside class="notes"></p>
+
+<p>Rebase <strong>reorders</strong> the chosen commits <strong>before</strong> your branch work</p>
+
+
+
+
+<p>simulates team members <strong>taking turns</strong> working (one person at a time)</p>
+
+
+<p></aside></p>
+
+
+					</section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+
+					<section>
+						<h1 >Rebase</h1>
+						<h2 >Fast Forward</h2>
+						<div class="clear-all"></div>
+
+						
+							
+								
+							
+							<svg version="1.1"
+								width="100%"
+								height="100%"
+								data-path="assets/diagrams/rebase.svg"
+								id="canvas-14-2"
+								preserveAspectRatio="xMidyMid"
+								viewBox="0 0 100 100"></svg>
+						
+
+						
+
+
+					</section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+
+					<section>
+						<h1 >Rebase</h1>
+						<h2 >Against A Branch</h2>
+						<div class="clear-all"></div>
+
+						
+
+						<pre><code>git checkout &lt;feature-branch&gt;
+git rebase &lt;branch&gt;
+</code></pre>
+
+<p><aside class="notes"></p>
+
+<p><strong>Retrieve upstream changes</strong>,</p>
+
+
+
+
+<p><strong>relocate</strong> your local changes to the end</p>
+
+
+
+
+<pre><code>git pull --rebase
+</code></pre>
+
+
+
+
+<p>The same as</p>
+
+
+
+
+<pre><code>git checkout master
+git rebase origin/master
+
+git checkout &lt;featurebranch&gt;
+git rebase master
+</code></pre>
+
+
+<p></aside></p>
+
+
+					</section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+
+					<section>
+						<h1 >Rebase</h1>
+						<h2 >Interactive</h2>
+						<div class="clear-all"></div>
+
+						
+							
+								
+							
+							<svg version="1.1"
+								width="100%"
+								height="100%"
+								data-path="assets/diagrams/rebase-interactive.svg"
+								id="canvas-14-4"
+								preserveAspectRatio="xMidyMid"
+								viewBox="0 0 100 100"></svg>
+						
+
+						
+
+
+					</section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+
+					<section>
+						<h1 >Rebase</h1>
+						<h2 >Interactive Command</h2>
+						<div class="clear-all"></div>
+
+						
+
+						<pre><code>git rebase -i &lt;ref&gt;
+</code></pre>
+
+
+					</section>
+				
+			</section>
+		
+			<!--Capture the chapter index value-->
+			
+
+			<!--Nest all chapter's content. Chapters traverse left-right; Sections slide up-down-->
+			<section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+						
+							<section class="cover">
+								<h1>Network</h1>
+							</section>
+						
+					
+
+					<section>
+						<h1 >Network</h1>
+						<h2 >Remotes</h2>
+						<div class="clear-all"></div>
+
+						
+							
+								
+							
+							<svg version="1.1"
+								width="100%"
+								height="100%"
+								data-path="assets/diagrams/network.svg"
+								id="canvas-15-1"
+								preserveAspectRatio="xMidyMid"
+								viewBox="0 0 100 100"></svg>
+						
+
+						<p><aside class="notes"></p>
+
+<ul>
+<li>Local repository is a full copy of the remote</li>
+<li>Clone fetches all branches and tags</li>
+<li>Almost all activities happen offline (local disk)</li>
+<li>Offline activities are push-ed to remotes</li>
+</ul>
+
+
+<p></aside></p>
+
+
+					</section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+
+					<section>
+						<h1 >Network</h1>
+						<h2 >Adding A Remote</h2>
+						<div class="clear-all"></div>
+
+						
+
+						<pre><code>git remote add &lt;name&gt; &lt;url&gt;
+</code></pre>
+
+<p><aside class="notes"></p>
+
+<ul>
+<li>Remotes are symbolic names</li>
+<li>Create as many as you like</li>
+<li>Default is <code>origin</code> (if you’ve cloned)</li>
+</ul>
+
+
+<p></aside></p>
+
+
+					</section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+
+					<section>
+						<h1 >Network</h1>
+						<h2 >Remotes Are Immutable</h2>
+						<div class="clear-all"></div>
+
+						
+
+						<div class="sticky">
+    <span><i class="icon-lightbulb"> </i></span>
+    Remote-tracking branches are locally immutable
+</div>
+
+
+
+					</section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+
+					<section>
+						<h1 >Network</h1>
+						<h2 >Listing Remote Branches</h2>
+						<div class="clear-all"></div>
+
+						
+
+						<pre><code>#List remote branches
+git branch -r
+
+#List all branches
+git branch -a
+</code></pre>
+
+<!--
+    #List upstream branches
+    git ls-remote origin
+-->
+
+
+
+					</section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+
+					<section>
+						<h1 >Network</h1>
+						<h2 >Sharing With A Push</h2>
+						<div class="clear-all"></div>
+
+						
+
+						<pre><code>git push &lt;remote&gt; &lt;branch&gt;
+</code></pre>
+
+<p><aside class="notes"></p>
+
+<ul>
+<li>Send code to an upstream server</li>
+<li>Update remote branches</li>
+<li>Set upstream on push with <code>-u</code></li>
+</ul>
+
+
+<p></aside></p>
+
+
+					</section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+
+					<section>
+						<h1 >Network</h1>
+						<h2 >Pull Vs Fetch</h2>
+						<div class="clear-all"></div>
+
+						
+
+						<pre><code>git pull &lt;remote&gt; &lt;branch&gt;
+
+git fetch &lt;remote&gt; &lt;branch&gt;
+</code></pre>
+
+<p><aside class="notes"></p>
+
+<ul>
+<li><code>git pull</code>
+
+<ul>
+<li>Retrieve upstream objects</li>
+<li>Update remote branch</li>
+<li>Merge changes into branch (HEAD)</li>
+<li>Commit the merge to the local branch</li>
+</ul>
+</li>
+<li><code>git fetch</code>
+
+<ul>
+<li>Only retrieves upstream objects</li>
+</ul>
+</li>
+</ul>
+
+
+<p></aside></p>
+
+
+					</section>
+				
+			</section>
+		
+			<!--Capture the chapter index value-->
+			
+
+			<!--Nest all chapter's content. Chapters traverse left-right; Sections slide up-down-->
+			<section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+						
+							<section class="cover">
+								<h1>GitHub</h1>
+							</section>
+						
+					
+
+					<section>
+						<h1 >GitHub</h1>
+						<h2 >GitHub Hosted Repo</h2>
+						<div class="clear-all"></div>
+
+						
+
+						<ul>
+<li>Create a GitHub repository</li>
+<li>Configure access &amp; options</li>
+</ul>
+
+
+
+					</section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+
+					<section>
+						<h1 >GitHub</h1>
+						<h2 >Cloning From GitHub</h2>
+						<div class="clear-all"></div>
+
+						
+
+						<p>Obtain a local "copy":</p>
+
+<pre><code># SSH
+git clone 
+    git@github.com:&lt;user&gt;/&lt;repo&gt;.git
+
+# HTTPS
+git clone
+    https://github.com/&lt;user&gt;/&lt;repo&gt;.git
+</code></pre>
+
+
+					</section>
+				
+			</section>
+		
+			<!--Capture the chapter index value-->
+			
+
+			<!--Nest all chapter's content. Chapters traverse left-right; Sections slide up-down-->
+			<section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+						
+							<section class="cover">
+								<h1>Forking</h1>
+							</section>
+						
+					
+
+					<section>
+						<h1 >Forking</h1>
+						<h2 >Purpose Of Forking</h2>
+						<div class="clear-all"></div>
+
+						
+
+						<ul>
+<li>Entire history of original repository</li>
+<li>Facilitates easy contribution</li>
+<li>Encourages individual exploration</li>
+</ul>
+
+
+
+					</section>
+				
+			</section>
+		
+			<!--Capture the chapter index value-->
+			
+
+			<!--Nest all chapter's content. Chapters traverse left-right; Sections slide up-down-->
+			<section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+						
+							<section class="cover">
+								<h1>Pull Requests</h1>
+							</section>
+						
+					
+
+					<section>
+						<h1 >Pull Requests</h1>
+						<h2 >Promoting Collaboration</h2>
+						<div class="clear-all"></div>
+
+						
+
+						<ul>
+<li>Merging with traceability</li>
+<li>Peer-review via GitHub &amp; Git</li>
+</ul>
+
+
+
+					</section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+				
+			</section>
+		
+			<!--Capture the chapter index value-->
+			
+
+			<!--Nest all chapter's content. Chapters traverse left-right; Sections slide up-down-->
+			<section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+						
+							<section class="cover">
+								<h1>Reset</h1>
+							</section>
+						
+					
+
+					<section>
+						<h1 >Reset</h1>
+						<h2 >Losing Data Is Difficult</h2>
+						<div class="clear-all"></div>
+
+						
+
+						<ul>
+<li><em>Losing</em> data with Git is difficult</li>
+<li><em>Restoring</em> from history is simple</li>
+</ul>
+
+
+
+					</section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+
+					<section>
+						<h1 >Reset</h1>
+						<h2 >Recover From History</h2>
+						<div class="clear-all"></div>
+
+						
+
+						<pre><code>$ git reset --soft &lt;REF&gt;
+
+$ git reset --mixed &lt;REF&gt;
+
+$ git reset --hard &lt;REF&gt;
+</code></pre>
+
+<p><aside class="notes"></p>
+
+<p>Reset modifies index, staging, and/or working dir</p>
+
+
+
+
+<ul>
+<li><code>--soft</code> affects only the <em>index</em></li>
+<li><code>--mixed</code> is default when no option flag passed</li>
+<li><code>--hard</code> clears index and working directory</li>
+</ul>
+
+
+<p></aside></p>
+
+
+					</section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+
+					<section>
+						<h1 class="hidden">Reset</h1>
+						<h2 class="hidden">Hard Reset Warning</h2>
+						<div class="clear-all"></div>
+
+						
+
+						<div class="sticky">
+    <span><i class="icon-warning-sign"> </i></span>
+
+    Use --hard with caution
+</div>
+
+
+
+					</section>
+				
+			</section>
+		
+			<!--Capture the chapter index value-->
+			
+
+			<!--Nest all chapter's content. Chapters traverse left-right; Sections slide up-down-->
+			<section>
+				
+					<!--Capture the slide index value-->
+					
+
+					<!--Chapter Auto-Injection-->
+					
+						
+							<section class="cover">
+								<h1>GUIs</h1>
+							</section>
+						
+					
+
+					<section>
+						<h1 >GUIs</h1>
+						<h2 >Native Tools</h2>
+						<div class="clear-all"></div>
+
+						
+
+						<pre><code># Committing
+git gui
+
+# Browsing
+gitk -a
+</code></pre>
+
+
+					</section>
+				
+				
+			</section>
+		
+			<!--Capture the chapter index value-->
+			
+
+		
+			<!--Capture the chapter index value-->
+		
+	</div>
+</div>
+
+				<!---RevealJS--->
+<script src="dependencies/revealjs/lib/js/head.min.js"></script>
+<script src="dependencies/revealjs/js/reveal.js"></script>
+<script>
+	// Full list of configuration options available here:
+	// https://github.com/hakimel/reveal.js#configuration
+	Reveal.initialize({
+		controls: false,
+		progress: true,
+		history: true,
+		center: true,
+
+		theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+		transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/none
+
+		// Optional libraries used to extend on reveal.js
+		dependencies: [
+			{ src: 'dependencies/revealjs/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+			{ src: 'dependencies/revealjs/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+		]
+	});
+
+	// SnapSVG
+	// Run once at startup to inject all SVGs
+	loadAllSvg();
+
+	function loadAllSvg(){
+		var els = document.getElementsByTagName("svg");
+
+		for(var elCount = 0; elCount < els.length; elCount++){
+				injectSvg(els[elCount]);
+		}
+	}
+
+	function injectSvg(canvasTarget){
+		if(canvasTarget){
+			Snap.load(
+				canvasTarget.getAttribute("data-path"),
+				function (frag) {
+					sCanvas = Snap("#" + canvasTarget.getAttribute("id"));
+					fCanvas = Snap();
+					sCanvas.clear();
+
+					//Determine if grouped build-steps present
+					var buildStepBase = frag.select("#base");
+							buildStepGroups = frag.selectAll("[id^=step-]"),
+							buildStepCount = buildStepGroups.length,
+							buildStep = 0;
+
+					//Setup the container canvas boundary sizing
+					setCanvasBBox(frag, canvasTarget);
+
+					// Show the first build step when available
+					// Otherwise just show entire graphic
+					if(buildStepCount > 0){
+						// Include the non-fragment base layout/visuals
+						fCanvas.append(buildStepBase);
+						// fCanvas.append(buildStepGroups[buildStep]);
+
+						for(; buildStep < buildStepCount; buildStep++){
+
+							// Supports fragment in-out transitions by
+							// wrapping in a group and applying a second
+							// fragment class
+							if(buildStepGroups[buildStep].node.id.match(/in-out/)){
+								var tG = fCanvas.g(buildStepGroups[buildStep]);
+								buildStepGroups[buildStep].attr("class", "fragment fade-out");
+								tG.attr("class", "fragment");
+								fCanvas.append(tG);
+							}
+							else{
+								buildStepGroups[buildStep].attr("class", "fragment");
+								fCanvas.append(buildStepGroups[buildStep]);
+							}
+						}
+					} else{
+						//No "steps" to build out, ensure boundary guide
+						//is not rendered
+						frag.select("#boundary").remove();
+						fCanvas.append(frag);
+					}
+
+					sCanvas.append(fCanvas);
+				}
+			);
+		}
+	}
+
+	function setCanvasBBox(canvas, target){
+    var boundary,
+				maxWidth,
+				maxHeight;
+
+    boundary = canvas.select("#boundary").select(":first-child").getBBox();
+		maxWidth = Math.ceil(boundary.width);
+		maxHeight = Math.ceil(boundary.height);
+
+		target.setAttribute("height", (((maxHeight/maxWidth)*100)+"%"));
+    target.setAttribute("viewBox", "0 0 " + maxWidth + " " + maxHeight);
+    return canvas;
+  }
+</script>
+
+<script src="dependencies/plugins/launcher/launcher.js"></script>
+<script src="dependencies/plugins/help/help.js"></script>
+
+			</body>
+		
+
+		
+
+		
+
+
+</html>
