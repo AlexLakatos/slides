@@ -1,0 +1,184 @@
+::-webkit-scrollbar { 
+    display: none; 
+}
+
+html,body{
+	margin: 0;
+	padding: 0;
+	background: #eee;
+	color: #333;
+	font-family: sans-serif;
+	font-size: 12px;
+	background: #888;
+}
+a{text-decoration: none;}
+
+.panel{
+	width: auto;
+	height: 100%;
+	padding: 0;
+	background: #eee;
+	/*border-radius: .5em;*/
+	overflow-y: auto;
+	position: relative;
+	background: #eee;
+}
+
+.panel.w50{
+	width: 48%;
+}
+.panel.w30{
+	width: 28%;
+}
+
+.controls{
+	display: none;
+	position: absolute;
+}
+
+.toc{
+	float: left;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	
+	/*overflow-y: auto;*/
+	/*overflow-x: hidden;*/
+	height: 100%;
+	width: 50%;
+}
+	.toc a:hover{
+		color: #fff;
+		text-shadow: 0 0 3px #000;
+	}
+
+	.toc li li a:hover{
+		color: #000;
+		text-shadow: 0 0 1px #555;
+	}
+
+	.toc a h1{
+		display: inline-block;
+		background: #444;
+		color: #ccc;
+		margin: 0;
+		width: 97%;
+		font-size: 1em;
+		padding: .25em 1% .25em 2%;
+		-webkit-transition: background 300ms, padding 300ms;
+		margin-bottom: 1px;
+		box-shadow: 0 0 0 1px #888, 0 0 10px 0 #666;
+		border-radius: 0 .5em .5em 0 / 0 .5em .5em 0;
+	}
+		.toc a:hover h1{
+			color: #fff;
+		}
+		.toc a.active h1{
+			background: #185DA0;
+			color: #fff;
+			box-shadow: 0 0 0 1px #888, 0 0 10px 0 #666;
+		}
+	
+
+	.toc ul{
+		margin: 0;
+		padding: 0;
+	}
+	
+	.toc > li{
+		font-weight: bold;
+		position: relative;
+	}
+
+	.toc li input[type="checkbox"]::before{
+		content: '';
+		position: absolute;
+
+	}
+	.toc li input[type="checkbox"]{
+		position: absolute;
+		right: 2%;	
+	}
+	.toc li input[type="checkbox"] + ul{
+		height: 0;
+		overflow:hidden;
+	}
+	.toc li input[type="checkbox"]:checked + ul{
+		height: auto;
+		overflow: visible;
+	}	
+
+	.toc ul li{
+		font-weight: normal;
+		list-style-type: none;
+		margin: auto auto auto 0%;
+		width: 100%;
+		padding: 0;
+	}
+	.toc li small{
+		float: left;
+		padding-right: .75em;
+		line-height: 1.5em;
+		color: #000;
+		opacity: .4;
+	}
+
+	.toc li li{
+		width: auto;
+		position: relative;
+	}
+
+
+	/*Notes*/
+	.toc li aside{
+		visibility: hidden;
+		overflow: auto;
+		top: 0;
+		left: 100%;
+		width: 96%;
+		padding: 2%;
+		background: #ffffff;
+		position: absolute;
+		border-radius: .5em;
+		box-shadow: 0 0 .25em #999;
+	}
+	.toc li a.active + aside{
+		visibility: visible;
+		
+	}
+	.toc li aside::before{
+		content:'';
+		position: absolute;
+		height:0;
+		width:0;
+		left: -.75em;
+		border-top: 8px solid transparent;
+		border-bottom: 8px solid transparent; 
+		border-right: 8px solid #999;
+	}
+	.toc aside ul{
+		margin: auto;
+	}
+	.toc aside li{
+		list-style-type: disc;
+		margin: 0 .25em 0 1.5em;
+	}
+
+
+	.toc li li a{
+		padding: 3px 0 3px 5%;
+		color: #555;
+		text-decoration: none;
+		-webkit-transition: padding 200ms, margin 200ms, border 300ms;
+		display: inline-block;
+		text-transform: lowercase;
+		width: 95%;
+		text-shadow: 0 0 1px #eee;
+	}
+
+	.toc li li .active, .toc li li .active:hover{
+		text-shadow: 0 0 1px #555;
+		color: #000;
+		text-decoration:none;
+		border-left: 10px solid #1071BE;
+	}
